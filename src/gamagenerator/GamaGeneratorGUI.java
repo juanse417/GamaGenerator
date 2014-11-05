@@ -5,6 +5,11 @@
  */
 package gamagenerator;
 
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.util.Random;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Universidad
@@ -43,9 +48,10 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
         redSliderFinal = new javax.swing.JSlider();
         greenSliderFinal = new javax.swing.JSlider();
         blueSliderFinal = new javax.swing.JSlider();
-        jPanel1 = new javax.swing.JPanel();
+        segmentosPanel = new javax.swing.JPanel();
         segmentosLabel = new javax.swing.JLabel();
         segmentosSilder = new javax.swing.JSlider();
+        numeroLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -167,23 +173,29 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(153, 51, 0));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout segmentosPanelLayout = new javax.swing.GroupLayout(segmentosPanel);
+        segmentosPanel.setLayout(segmentosPanelLayout);
+        segmentosPanelLayout.setHorizontalGroup(
+            segmentosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        segmentosPanelLayout.setVerticalGroup(
+            segmentosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        segmentosLabel.setText("# Segmentos");
+        segmentosLabel.setText("# Segmentos:");
 
         segmentosSilder.setMaximum(10);
+        segmentosSilder.setMinimum(3);
         segmentosSilder.setValue(3);
+        segmentosSilder.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                segmentosSilderStateChanged(evt);
+            }
+        });
+
+        numeroLabel.setText("3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,10 +205,13 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
                 .addComponent(colorInicioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(segmentosPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(segmentosLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(segmentosLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(numeroLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(segmentosSilder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 58, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
@@ -211,16 +226,35 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
                 .addGap(0, 11, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(segmentosLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(segmentosLabel)
+                    .addComponent(numeroLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(segmentosSilder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(segmentosPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void segmentosSilderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_segmentosSilderStateChanged
+        segmentosPanel.removeAll();
+        System.out.println("Valor: " +segmentosSilder.getValue() );
+        numeroLabel.setText(""+segmentosSilder.getValue());
+        GridLayout segmentosLayout = new GridLayout(0,segmentosSilder.getValue());
+        segmentosPanel.setLayout(segmentosLayout);
+        Random r = new Random();
+        
+        for (int i =0;i<segmentosSilder.getValue() ;i++ ) {
+            JPanel panel =  new JPanel();
+            Color color = new Color(r.nextFloat(), r.nextFloat(), r.nextFloat());
+            panel.setBackground(color);
+            segmentosPanel.add(panel);  
+        }
+        
+    }//GEN-LAST:event_segmentosSilderStateChanged
 
     /**
      * @param args the command line arguments
@@ -270,12 +304,13 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
     private javax.swing.JLabel greenInicialLabel;
     private javax.swing.JSlider greenSliderFinal;
     private javax.swing.JSlider greenSliderInicial;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel numeroLabel;
     private javax.swing.JLabel redFinalLabel;
     private javax.swing.JLabel redInicialLabel;
     private javax.swing.JSlider redSliderFinal;
     private javax.swing.JSlider redSliderInicial;
     private javax.swing.JLabel segmentosLabel;
+    private javax.swing.JPanel segmentosPanel;
     private javax.swing.JSlider segmentosSilder;
     // End of variables declaration//GEN-END:variables
 }

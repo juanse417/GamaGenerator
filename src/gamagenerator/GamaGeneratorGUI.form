@@ -27,10 +27,14 @@
               <Component id="colorInicioPanel" min="-2" pref="170" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="segmentosPanel" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="segmentosLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="segmentosLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="numeroLabel" min="-2" pref="14" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="segmentosSilder" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
@@ -52,11 +56,14 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="segmentosLabel" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="segmentosLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="numeroLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="segmentosSilder" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="segmentosPanel" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -251,12 +258,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="33" red="99" type="rgb"/>
-        </Property>
-      </Properties>
+    <Container class="javax.swing.JPanel" name="segmentosPanel">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -266,20 +268,29 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
     </Container>
     <Component class="javax.swing.JLabel" name="segmentosLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="# Segmentos"/>
+        <Property name="text" type="java.lang.String" value="# Segmentos:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="segmentosSilder">
       <Properties>
         <Property name="maximum" type="int" value="10"/>
+        <Property name="minimum" type="int" value="3"/>
         <Property name="value" type="int" value="3"/>
+      </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="segmentosSilderStateChanged"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="numeroLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="3"/>
       </Properties>
     </Component>
   </SubComponents>
