@@ -27,17 +27,196 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        colorInicioPanel = new javax.swing.JPanel();
+        colorInicialLabel = new javax.swing.JLabel();
+        redInicialLabel = new javax.swing.JLabel();
+        greenInicialLabel = new javax.swing.JLabel();
+        blueInicialLabel = new javax.swing.JLabel();
+        redSliderInicial = new javax.swing.JSlider();
+        greenSliderInicial = new javax.swing.JSlider();
+        blueSliderInicial = new javax.swing.JSlider();
+        colorFinalPanel = new javax.swing.JPanel();
+        colorFinalLabel = new javax.swing.JLabel();
+        redFinalLabel = new javax.swing.JLabel();
+        greenFinalLabel = new javax.swing.JLabel();
+        blueFinalLabel = new javax.swing.JLabel();
+        redSliderFinal = new javax.swing.JSlider();
+        greenSliderFinal = new javax.swing.JSlider();
+        blueSliderFinal = new javax.swing.JSlider();
+        jPanel1 = new javax.swing.JPanel();
+        segmentosLabel = new javax.swing.JLabel();
+        segmentosSilder = new javax.swing.JSlider();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        colorInicialLabel.setText("Color Inicial");
+
+        redInicialLabel.setText("Red");
+
+        greenInicialLabel.setText("Green");
+
+        blueInicialLabel.setText("Blue");
+
+        redSliderInicial.setMaximum(255);
+
+        greenSliderInicial.setMaximum(255);
+
+        blueSliderInicial.setMaximum(255);
+
+        javax.swing.GroupLayout colorInicioPanelLayout = new javax.swing.GroupLayout(colorInicioPanel);
+        colorInicioPanel.setLayout(colorInicioPanelLayout);
+        colorInicioPanelLayout.setHorizontalGroup(
+            colorInicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorInicioPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(redSliderInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
+            .addGroup(colorInicioPanelLayout.createSequentialGroup()
+                .addGroup(colorInicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(colorInicioPanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(colorInicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(blueInicialLabel)
+                            .addComponent(greenInicialLabel)
+                            .addComponent(redInicialLabel)
+                            .addComponent(colorInicialLabel)))
+                    .addGroup(colorInicioPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(greenSliderInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(colorInicioPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(blueSliderInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        colorInicioPanelLayout.setVerticalGroup(
+            colorInicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(colorInicioPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(colorInicialLabel)
+                .addGap(18, 18, 18)
+                .addComponent(redInicialLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(redSliderInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(greenInicialLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(greenSliderInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(blueInicialLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(blueSliderInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        colorFinalLabel.setText("Color Final");
+
+        redFinalLabel.setText("Red");
+
+        greenFinalLabel.setText("Green");
+
+        blueFinalLabel.setText("Blue");
+
+        redSliderFinal.setMaximum(255);
+
+        greenSliderFinal.setMaximum(255);
+
+        blueSliderFinal.setMaximum(255);
+
+        javax.swing.GroupLayout colorFinalPanelLayout = new javax.swing.GroupLayout(colorFinalPanel);
+        colorFinalPanel.setLayout(colorFinalPanelLayout);
+        colorFinalPanelLayout.setHorizontalGroup(
+            colorFinalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorFinalPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(redSliderFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
+            .addGroup(colorFinalPanelLayout.createSequentialGroup()
+                .addGroup(colorFinalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(colorFinalPanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(colorFinalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(blueFinalLabel)
+                            .addComponent(greenFinalLabel)
+                            .addComponent(redFinalLabel)
+                            .addComponent(colorFinalLabel)))
+                    .addGroup(colorFinalPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(greenSliderFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(colorFinalPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(blueSliderFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        colorFinalPanelLayout.setVerticalGroup(
+            colorFinalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(colorFinalPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(colorFinalLabel)
+                .addGap(18, 18, 18)
+                .addComponent(redFinalLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(redSliderFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(greenFinalLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(greenSliderFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(blueFinalLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(blueSliderFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBackground(new java.awt.Color(153, 51, 0));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        segmentosLabel.setText("# Segmentos");
+
+        segmentosSilder.setMaximum(10);
+        segmentosSilder.setValue(3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(colorInicioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(segmentosLabel)
+                            .addComponent(segmentosSilder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 58, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(colorFinalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(colorInicioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(colorFinalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 11, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(segmentosLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(segmentosSilder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -79,5 +258,24 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel blueFinalLabel;
+    private javax.swing.JLabel blueInicialLabel;
+    private javax.swing.JSlider blueSliderFinal;
+    private javax.swing.JSlider blueSliderInicial;
+    private javax.swing.JLabel colorFinalLabel;
+    private javax.swing.JPanel colorFinalPanel;
+    private javax.swing.JLabel colorInicialLabel;
+    private javax.swing.JPanel colorInicioPanel;
+    private javax.swing.JLabel greenFinalLabel;
+    private javax.swing.JLabel greenInicialLabel;
+    private javax.swing.JSlider greenSliderFinal;
+    private javax.swing.JSlider greenSliderInicial;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel redFinalLabel;
+    private javax.swing.JLabel redInicialLabel;
+    private javax.swing.JSlider redSliderFinal;
+    private javax.swing.JSlider redSliderInicial;
+    private javax.swing.JLabel segmentosLabel;
+    private javax.swing.JSlider segmentosSilder;
     // End of variables declaration//GEN-END:variables
 }
