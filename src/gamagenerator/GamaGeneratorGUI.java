@@ -57,6 +57,9 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
         numeroLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Generador de Gamas");
+        setMinimumSize(new java.awt.Dimension(640, 245));
+        setPreferredSize(new java.awt.Dimension(640, 245));
 
         colorInicialLabel.setText("Color Inicial");
 
