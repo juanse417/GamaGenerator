@@ -355,42 +355,49 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
             segmentosPanel.add(panel);  
         }
         this.repintarSegmentos();
+        pintarGama();
     }//GEN-LAST:event_segmentosSilderStateChanged
 
     private void redSliderInicialStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_redSliderInicialStateChanged
         redInicialValor.setText(""+redSliderInicial.getValue());
         java.awt.Component componentes[] = segmentosPanel.getComponents();
         componentes[0].setBackground(this.getColorInicial());
+        pintarGama();
     }//GEN-LAST:event_redSliderInicialStateChanged
 
     private void greenSliderInicialStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_greenSliderInicialStateChanged
         greenInicialValor.setText(""+greenSliderInicial.getValue());
         java.awt.Component componentes[] = segmentosPanel.getComponents();
         componentes[0].setBackground(this.getColorInicial());
+        pintarGama();
     }//GEN-LAST:event_greenSliderInicialStateChanged
 
     private void blueSliderInicialStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_blueSliderInicialStateChanged
         blueInicialValor.setText(""+blueSliderInicial.getValue());
         java.awt.Component componentes[] = segmentosPanel.getComponents();
         componentes[0].setBackground(this.getColorInicial());
+        pintarGama();
     }//GEN-LAST:event_blueSliderInicialStateChanged
 
     private void redSliderFinalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_redSliderFinalStateChanged
         redFinalValor.setText(""+redSliderFinal.getValue());
         java.awt.Component componentes[] = segmentosPanel.getComponents();
-        componentes[segmentosSilder.getValue()-1].setBackground(this.getColorFinal());    
+        componentes[segmentosSilder.getValue()-1].setBackground(this.getColorFinal());
+        pintarGama();
     }//GEN-LAST:event_redSliderFinalStateChanged
 
     private void greenSliderFinalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_greenSliderFinalStateChanged
         greenFinalValor.setText(""+greenSliderFinal.getValue());
         java.awt.Component componentes[] = segmentosPanel.getComponents();
         componentes[segmentosSilder.getValue()-1].setBackground(this.getColorFinal());  
+        pintarGama();
     }//GEN-LAST:event_greenSliderFinalStateChanged
 
     private void blueSliderFinalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_blueSliderFinalStateChanged
         blueFinalValor.setText(""+blueSliderFinal.getValue());
         java.awt.Component componentes[] = segmentosPanel.getComponents();
-        componentes[segmentosSilder.getValue()-1].setBackground(this.getColorFinal());  
+        componentes[segmentosSilder.getValue()-1].setBackground(this.getColorFinal()); 
+        pintarGama();
     }//GEN-LAST:event_blueSliderFinalStateChanged
 
     /**
@@ -440,9 +447,29 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
     
     private void repintarSegmentos() {
     
-        for (int i =0; i<segmentosPanel.getComponentCount();i++) {
+        for (int i =1; i<segmentosPanel.getComponentCount()-1;i++) {
         
             segmentosPanel.getComponent(i).repaint();
+        }
+    
+    }
+    
+    private void pintarGama() {
+    
+        int pasoRed;
+        int pasoGreen;
+        int pasoBlue;
+        
+        pasoRed = (getColorFinal().getRed()- getColorInicial().getRed())/(segmentosPanel.getComponentCount()-1);
+        pasoGreen = (getColorFinal().getGreen()- getColorInicial().getGreen())/(segmentosPanel.getComponentCount()-1);
+        pasoBlue = (getColorFinal().getBlue()- getColorInicial().getBlue())/(segmentosPanel.getComponentCount()-1);
+        
+        Color colorInicial = getColorInicial();
+        for(int i =1; i<segmentosPanel.getComponentCount()-1;i++) {
+        
+            Color newColor  = new Color(colorInicial.getRed()+pasoRed,colorInicial.getGreen()+pasoGreen,colorInicial.getBlue()+pasoBlue);
+            segmentosPanel.getComponent(i).setBackground(newColor);
+            colorInicial=newColor; 
         }
     
     }
