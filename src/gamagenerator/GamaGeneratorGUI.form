@@ -85,10 +85,22 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="blueInicialLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="greenInicialLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="redInicialLabel" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="redInicialLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="redInicialValor" min="-2" pref="26" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="colorInicialLabel" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="greenInicialLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="greenInicialValor" min="-2" pref="25" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="blueInicialLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="blueInicialValor" min="-2" pref="25" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -110,15 +122,24 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="colorInicialLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="redInicialLabel" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="redInicialLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="redInicialValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="redSliderInicial" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="greenInicialLabel" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="greenInicialLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="greenInicialValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="greenSliderInicial" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="blueInicialLabel" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="blueInicialLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="blueInicialValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="blueSliderInicial" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -150,16 +171,49 @@
         <Component class="javax.swing.JSlider" name="redSliderInicial">
           <Properties>
             <Property name="maximum" type="int" value="255"/>
+            <Property name="value" type="int" value="55"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="redSliderInicialStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSlider" name="greenSliderInicial">
           <Properties>
             <Property name="maximum" type="int" value="255"/>
+            <Property name="value" type="int" value="75"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="greenSliderInicialStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSlider" name="blueSliderInicial">
           <Properties>
             <Property name="maximum" type="int" value="255"/>
+            <Property name="value" type="int" value="150"/>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="blueSliderInicialStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="redInicialValor">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&quot;+redSliderInicial.getValue()" type="code"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="greenInicialValor">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&quot;+greenSliderInicial.getValue()" type="code"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="blueInicialValor">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&quot;+blueSliderInicial.getValue()" type="code"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
@@ -179,10 +233,26 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="blueFinalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="greenFinalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="redFinalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="colorFinalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="blueFinalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="greenFinalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="redFinalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="redFinalValor" alignment="0" min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                                          <Component id="greenFinalValor" min="-2" pref="25" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                                          <Component id="blueFinalValor" min="-2" pref="25" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -204,15 +274,26 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="colorFinalLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="redFinalLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="redSliderFinal" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="greenFinalLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="greenSliderFinal" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="blueFinalLabel" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="redFinalLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="redSliderFinal" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="greenFinalLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="greenSliderFinal" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="blueFinalLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="redFinalValor" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
+                          <Component id="greenFinalValor" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
+                          <Component id="blueFinalValor" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="blueSliderFinal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -244,16 +325,50 @@
         <Component class="javax.swing.JSlider" name="redSliderFinal">
           <Properties>
             <Property name="maximum" type="int" value="255"/>
+            <Property name="value" type="int" value="100"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="redSliderFinalStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSlider" name="greenSliderFinal">
           <Properties>
             <Property name="maximum" type="int" value="255"/>
+            <Property name="value" type="int" value="100"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="greenSliderFinalStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSlider" name="blueSliderFinal">
           <Properties>
             <Property name="maximum" type="int" value="255"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="value" type="int" value="100"/>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="blueSliderFinalStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="redFinalValor">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&quot;+redSliderFinal.getValue()" type="code"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="greenFinalValor">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&quot;+greenSliderFinal.getValue()" type="code"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="blueFinalValor">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&quot;+blueSliderFinal.getValue()" type="code"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
