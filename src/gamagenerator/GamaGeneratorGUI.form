@@ -52,7 +52,7 @@
                   <Component id="colorInicioPanel" min="-2" max="-2" attributes="0"/>
                   <Component id="colorFinalPanel" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -171,7 +171,6 @@
         <Component class="javax.swing.JSlider" name="redSliderInicial">
           <Properties>
             <Property name="maximum" type="int" value="255"/>
-            <Property name="value" type="int" value="55"/>
           </Properties>
           <Events>
             <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="redSliderInicialStateChanged"/>
@@ -374,18 +373,13 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="segmentosPanel">
+      <Events>
+        <EventHandler event="componentAdded" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="segmentosPanelComponentAdded"/>
+      </Events>
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="0"/>
+        <Property name="rows" type="int" value="1"/>
       </Layout>
     </Container>
     <Component class="javax.swing.JLabel" name="segmentosLabel">

@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gamagenerator;
 
 import java.awt.Color;
-import java.awt.GridLayout;
 import java.util.Random;
 import javax.swing.JPanel;
 
@@ -21,18 +15,9 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
      */
     public GamaGeneratorGUI() {
         initComponents();
-        GridLayout segmentosLayout = new GridLayout(0,3);
-        segmentosPanel.setLayout(segmentosLayout);
-        JPanel panelR =  new JPanel();
-        JPanel panelG =  new JPanel();
-        JPanel panelB =  new JPanel();
-        panelR.setBackground(new Color(redSliderInicial.getValue(),greenSliderInicial.getValue(),blueSliderInicial.getValue()));
-        panelG.setBackground(Color.GREEN);
-        panelB.setBackground(new Color(redSliderFinal.getValue(),greenSliderFinal.getValue(),blueSliderFinal.getValue()));
-        segmentosPanel.add(panelR);  
-        segmentosPanel.add(panelG); 
-        segmentosPanel.add(panelB); 
-        
+        iniciarSegmentos();
+        setSliderIniciales();
+     
     }
 
     /**
@@ -82,7 +67,6 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
         blueInicialLabel.setText("Blue");
 
         redSliderInicial.setMaximum(255);
-        redSliderInicial.setValue(55);
         redSliderInicial.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 redSliderInicialStateChanged(evt);
@@ -274,16 +258,12 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout segmentosPanelLayout = new javax.swing.GroupLayout(segmentosPanel);
-        segmentosPanel.setLayout(segmentosPanelLayout);
-        segmentosPanelLayout.setHorizontalGroup(
-            segmentosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        segmentosPanelLayout.setVerticalGroup(
-            segmentosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        segmentosPanel.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                segmentosPanelComponentAdded(evt);
+            }
+        });
+        segmentosPanel.setLayout(new java.awt.GridLayout());
 
         segmentosLabel.setText("# Segmentos:");
 
@@ -324,7 +304,7 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(colorInicioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(colorFinalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(11, 11, 11))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -341,23 +321,15 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void segmentosSilderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_segmentosSilderStateChanged
-        segmentosPanel.removeAll();
-        
-        System.out.println("Valor: " +segmentosSilder.getValue() );
+        segmentosPanel.removeAll();     
         numeroLabel.setText(""+segmentosSilder.getValue());
-        GridLayout segmentosLayout = new GridLayout(0,segmentosSilder.getValue());
-        segmentosPanel.setLayout(segmentosLayout);
         Random r = new Random();    
         for (int i =0;i<segmentosSilder.getValue() ;i++ ) {
             JPanel panel =  new JPanel();
-            //Color color = new Color(r.nextFloat(), r.nextFloat(), r.nextFloat());
-            //panel.setBackground(color);
             segmentosPanel.add(panel);  
         }
         segmentosPanel.getComponent(0).setBackground(getColorInicial());
         segmentosPanel.getComponent(segmentosPanel.getComponentCount()-1).setBackground(getColorFinal());
-        this.repintarSegmentos();
-        pintarGama();
     }//GEN-LAST:event_segmentosSilderStateChanged
 
     private void redSliderInicialStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_redSliderInicialStateChanged
@@ -402,6 +374,12 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
         pintarGama();
     }//GEN-LAST:event_blueSliderFinalStateChanged
 
+    private void segmentosPanelComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_segmentosPanelComponentAdded
+        if(segmentosPanel.getComponentCount()>2) {
+            pintarGama();
+        }
+    }//GEN-LAST:event_segmentosPanelComponentAdded
+
     /**
      * @param args the command line arguments
      */
@@ -436,9 +414,22 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void iniciarSegmentos() {
+    
+    Color color;
+    int countSegmentos =segmentosSilder.getValue();
+     for (int i =0;i<countSegmentos ;i++ ) {
+            color = new Color((float) Math.random(), (float) Math.random(), (float) Math.random());
+            JPanel panel =  new JPanel();      
+            panel.setBackground(color);
+            segmentosPanel.add(panel);  
+        }   
+    }
 
     private Color getColorInicial() {       
         Color color = new Color(redSliderInicial.getValue(),greenSliderInicial.getValue(),blueSliderInicial.getValue());
+        
         return color;
     }
     
@@ -473,6 +464,20 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
             segmentosPanel.getComponent(i).setBackground(newColor);
             colorInicial=newColor; 
         }
+    
+    }
+    
+    private void setSliderIniciales() {
+        Color inicial = segmentosPanel.getComponent(0).getBackground();
+        Color finals = segmentosPanel.getComponent(segmentosSilder.getValue()-1).getBackground();
+        
+        redSliderInicial.setValue(inicial.getRed());
+        greenSliderInicial.setValue(inicial.getGreen());
+        blueSliderInicial.setValue(inicial.getBlue());
+        
+        redSliderFinal.setValue(finals.getRed());
+        greenSliderFinal.setValue(finals.getGreen());
+        blueSliderFinal.setValue(finals.getBlue());
     
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
