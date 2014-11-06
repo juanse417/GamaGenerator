@@ -350,10 +350,12 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
         Random r = new Random();    
         for (int i =0;i<segmentosSilder.getValue() ;i++ ) {
             JPanel panel =  new JPanel();
-            Color color = new Color(r.nextFloat(), r.nextFloat(), r.nextFloat());
-            panel.setBackground(color);
+            //Color color = new Color(r.nextFloat(), r.nextFloat(), r.nextFloat());
+            //panel.setBackground(color);
             segmentosPanel.add(panel);  
         }
+        segmentosPanel.getComponent(0).setBackground(getColorInicial());
+        segmentosPanel.getComponent(segmentosPanel.getComponentCount()-1).setBackground(getColorFinal());
         this.repintarSegmentos();
         pintarGama();
     }//GEN-LAST:event_segmentosSilderStateChanged
