@@ -354,8 +354,7 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
             panel.setBackground(color);
             segmentosPanel.add(panel);  
         }
-        //segmentosPanel.repaint();
-        
+        this.repintarSegmentos();
     }//GEN-LAST:event_segmentosSilderStateChanged
 
     private void redSliderInicialStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_redSliderInicialStateChanged
@@ -437,6 +436,15 @@ public class GamaGeneratorGUI extends javax.swing.JFrame {
     private Color getColorFinal() {
         Color color = new Color(redSliderFinal.getValue(),greenSliderFinal.getValue(),blueSliderFinal.getValue());
         return color;
+    }
+    
+    private void repintarSegmentos() {
+    
+        for (int i =0; i<segmentosPanel.getComponentCount();i++) {
+        
+            segmentosPanel.getComponent(i).repaint();
+        }
+    
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel blueFinalLabel;
